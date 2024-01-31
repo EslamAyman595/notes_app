@@ -8,23 +8,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return const  Scaffold(
       body: NotesViewBody(),
-      // appBar: AppBar(
-      //   elevation: 0,
-      //   title: Text('notes',style: TextStyle(color: Colors.white),),
-      //   backgroundColor: Colors.transparent,
-      //   actions: [
-      //     IconButton(onPressed: (){}, icon: Icon(Icons.search))
-      //   ],
-      //   ),
-      //   //backgroundColor: Colors.black,
-      //   body:
-      //    Column(
-           
-      //     children: [
-            
-
-      //     ],
-      //   ),
+      
 
     );
   }
