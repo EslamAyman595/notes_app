@@ -2,20 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:notes_app/widgets/note_item.dart';
 
 class NotesListview extends StatelessWidget {
-const NotesListview({ Key? key }) : super(key: key);
-
+  const NotesListview({Key? key}) : super(key: key);
+ final List<Color> data=const [
+ Color(0xffFFCC80),
+  Colors.red,
+  Colors.green,
+  Colors.blueAccent,
+ ];
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return ListView.builder(
-      //itemCount: 5,
-      itemBuilder: (context,index){
+     // itemCount: data.length,
+      itemBuilder: (context, index) {
         return const Padding(
-          padding:  EdgeInsets.symmetric(vertical: 8),
-          child: NoteItem(),
+          padding: EdgeInsets.symmetric(vertical: 3),
+          child: NoteItem(color:Color(0xffFFCC80), ),
         );
       },
-  
-    
     );
   }
 }
