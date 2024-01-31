@@ -11,8 +11,12 @@ class HomePage extends StatelessWidget {
       floatingActionButton: Container(
         child: FloatingActionButton(
           onPressed: () {
-            showModalBottomSheet(context: context, builder: (context){
-              return AddNNoteBottomsheet();
+            showModalBottomSheet(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16);
+              ),
+              context: context, builder: (context){
+              return const  AddNNoteBottomsheet();
             });
           },
           child: Icon(Icons.add),
