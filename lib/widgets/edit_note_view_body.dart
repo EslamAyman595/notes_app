@@ -33,12 +33,7 @@ class EditNoteViewBody extends StatelessWidget {
             hintText: 'Content',
             maxline: 5,
           ),
-          //
-          Spacer(),
-          CustomButon(
-            text: 'Edit',
-            onTap: () {},
-          )
+        
         ],
       ),
     );
