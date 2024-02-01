@@ -10,13 +10,13 @@ final Color color;
     return GestureDetector(
       onTap: (){
         Navigator.of(context).push(MaterialPageRoute(builder: (context){
-          return EditNoteView();
+          return const EditNoteView();
         }));
       },
       child: Container(
         //height: 120,
         //width: 320,
-        padding: EdgeInsets.only(top: 20, bottom: 20, left: 12),
+        padding:const  EdgeInsets.only(top: 20, bottom: 20, left: 12),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           color: color,

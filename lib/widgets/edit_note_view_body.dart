@@ -8,29 +8,39 @@ class EditNoteViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CustomAppBar(text: 'Edit Note View', icon: Icon(Icons.youtube_searched_for),),
-        SizedBox(
-          height: 15,
-        ),
-        CustomTextField(
-          hintText: 'Title',
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        CustomTextField(
-          hintText: 'Content',
-          maxline: 5,
-        ),
-        // 
-        Spacer()
-,        CustomButon(
-          text: 'Edit',
-          onTap: () {},
-        )
-      ],
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 23),
+      child: Column(
+        children:[
+           SizedBox(
+            height: 5,
+          ),
+          CustomAppBar(
+            text: 'Edit Note View',
+            icon: Icon(Icons.check),
+            
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          CustomTextField(
+            hintText: 'Title',
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          CustomTextField(
+            hintText: 'Content',
+            maxline: 5,
+          ),
+          //
+          Spacer(),
+          CustomButon(
+            text: 'Edit',
+            onTap: () {},
+          )
+        ],
+      ),
     );
   }
 }
