@@ -6,8 +6,8 @@
 abstract class AddNoteState{}
 
 class AddNoteInitial extends AddNoteState {}
-class NoteAddedLoading extends AddNoteState {}
-class NoteAddedSuccess extends AddNoteState {}
-class NoteAddedFaliure extends AddNoteState {
+class AddNoteLoading extends AddNoteState {}
+class AddNoteSuccess extends AddNoteState {}
+class AddNoteFaliure extends AddNoteState {
   final String errMessage;
-   NoteAddedFaliure({this.errMessage = ""});}
+   AddNoteFaliure({this.errMessage = ""});}
