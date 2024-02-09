@@ -34,9 +34,9 @@ class _AddNNoteBottomsheetState extends State<AddNNoteBottomsheet> {
             // TODO: implement listener
           },
           builder: (context, state) {
-            return ModalProgressHUD(
-                inAsyncCall: state is AddNoteLoading ? true : false,
-                child: const SingleChildScrollView(child: AddNoteForm()));
+            return  AbsorbPointer(
+              absorbing: state is AddNoteLoading? true :false,
+              child: SingleChildScrollView(child: AddNoteForm()));
           },
         ),
       ),
