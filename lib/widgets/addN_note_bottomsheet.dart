@@ -8,36 +8,37 @@ import 'package:notes_app/widgets/custom_button.dart';
 import 'package:notes_app/widgets/custom_textfiled.dart';
 
 class AddNNoteBottomsheet extends StatefulWidget {
- const   AddNNoteBottomsheet({Key? key}) : super(key: key);
+  const AddNNoteBottomsheet({Key? key}) : super(key: key);
 
   @override
   State<AddNNoteBottomsheet> createState() => _AddNNoteBottomsheetState();
 }
 
 class _AddNNoteBottomsheetState extends State<AddNNoteBottomsheet> {
- //bool isLoading=false;
+  //bool isLoading=false;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16),
-      child: BlocConsumer<AddNotesCubit, AddNoteState>(
-        listener: (context, state) {
-          if( state is AddNoteFaliure){
-            print('falid ${state.errMessage}');
-      
-          }
-          if(state is AddNoteSuccess){
-            Navigator.pop(context);
-          }
-          // TODO: implement listener
-        },
-        builder: (context, state) {
-          return ModalProgressHUD(
-            inAsyncCall: state is AddNoteLoading ? true : false,
-            child:const  SingleChildScrollView(
-              child: AddNoteForm()));
-        },
+    return BlocProvider(
+      create: (context) => AddNotesCubit(),
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16),
+        child: BlocConsumer<AddNotesCubit, AddNoteState>(
+          listener: (context, state) {
+            if (state is AddNoteFaliure) {
+              print('falid ${state.errMessage}');
+            }
+            if (state is AddNoteSuccess) {
+              Navigator.pop(context);
+            }
+            // TODO: implement listener
+          },
+          builder: (context, state) {
+            return ModalProgressHUD(
+                inAsyncCall: state is AddNoteLoading ? true : false,
+                child: const SingleChildScrollView(child: AddNoteForm()));
+          },
+        ),
       ),
     );
   }
