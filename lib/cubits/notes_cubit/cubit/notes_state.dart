@@ -4,14 +4,14 @@ part of 'notes_cubit.dart';
 abstract class NotesState {}
 
  class NotesInitial extends NotesState {}
-class NotesLoading extends NotesState {}
-class NotesSuccess extends NotesState {
-  final List<NoteModel> notes;
+//class NotesLoading extends NotesState {}
+// class NotesSuccess extends NotesState {
+//   final List<NoteModel> notes;
 
-  NotesSuccess( this.notes);
+//   NotesSuccess( this.notes);
 
-}
-class NotesFaliure extends NotesState {
-  final String errorMessage;
-   NotesFaliure( this.errorMessage);
-}
+// }
+// class NotesFaliure extends NotesState {
+//   final String errorMessage;
+//    NotesFaliure( this.errorMessage);
+// }
