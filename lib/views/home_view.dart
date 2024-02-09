@@ -15,6 +15,7 @@ class HomePage extends StatelessWidget {
         child: FloatingActionButton(
           onPressed: () {
             showModalBottomSheet(
+              isScrollControlled: true,//ينفع يتعمل لة scroll لو طلع ليا فوق شويه فى حاله ظهور الكيبورد مثلا فا bottom sheet كلو يطلع لفوق
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
                 ),

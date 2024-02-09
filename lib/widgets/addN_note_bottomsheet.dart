@@ -21,24 +21,30 @@ class _AddNNoteBottomsheetState extends State<AddNNoteBottomsheet> {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => AddNotesCubit(),
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16),
-        child: BlocConsumer<AddNotesCubit, AddNoteState>(
-          listener: (context, state) {
-            if (state is AddNoteFaliure) {
-              print('falid ${state.errMessage}');
-            }
-            if (state is AddNoteSuccess) {
-              Navigator.pop(context);
-            }
-            // TODO: implement listener
-          },
-          builder: (context, state) {
-            return  AbsorbPointer(
-              absorbing: state is AddNoteLoading? true :false,
-              child: SingleChildScrollView(child: AddNoteForm()));
-          },
-        ),
+      child: BlocConsumer<AddNotesCubit, AddNoteState>(
+        listener: (context, state) {
+          if (state is AddNoteFaliure) {
+            print('falid ${state.errMessage}');
+          }
+          if (state is AddNoteSuccess) {
+            Navigator.pop(context);
+          }
+          // TODO: implement listener
+        },
+        builder: (context, state) {
+          return AbsorbPointer(
+              absorbing: state is AddNoteLoading ? true : false,
+              child: Padding(
+                padding: EdgeInsets.only(
+                    right: 16,
+                    left: 16,
+                    bottom: MediaQuery.of(context)
+                        .viewInsets
+                        .bottom //تعبر عن ارتفاع الكيبورد لما يظهر
+                    ),
+                child: const SingleChildScrollView(child: AddNoteForm()),
+              ));
+        },
       ),
     );
   }
