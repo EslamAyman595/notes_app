@@ -10,34 +10,31 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => NotesCubit(),
-      child: Scaffold(
-        floatingActionButton: Container(
-          height: 50,
-          width: 50,
-          child: FloatingActionButton(
-            onPressed: () {
-              showModalBottomSheet(
-                  isScrollControlled:
-                      true, //ينفع يتعمل لة scroll لو طلع ليا فوق شويه فى حاله ظهور الكيبورد مثلا فا bottom sheet كلو يطلع لفوق
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  context: context,
-                  builder: (context) {
-                    return const AddNNoteBottomsheet();
-                  });
-            },
-            child: Icon(Icons.add),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(60),
-            ),
-            backgroundColor: kprimarycolor,
+    return Scaffold(
+      floatingActionButton: Container(
+        height: 50,
+        width: 50,
+        child: FloatingActionButton(
+          onPressed: () {
+            showModalBottomSheet(
+                isScrollControlled:
+                    true, //ينفع يتعمل لة scroll لو طلع ليا فوق شويه فى حاله ظهور الكيبورد مثلا فا bottom sheet كلو يطلع لفوق
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                context: context,
+                builder: (context) {
+                  return const AddNNoteBottomsheet();
+                });
+          },
+          child: Icon(Icons.add),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(60),
           ),
+          backgroundColor: kprimarycolor,
         ),
-        body: const NotesViewBody(),
       ),
+      body: const NotesViewBody(),
     );
   }
 }
