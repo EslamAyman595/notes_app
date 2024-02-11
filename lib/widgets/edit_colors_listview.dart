@@ -1,21 +1,28 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:notes_app/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/widgets/color_item.dart';
+import 'package:notes_app/widgets/color_listview.dart';
 
-class ColorListview extends StatefulWidget {
-  const ColorListview({Key? key,}) : super(key: key);
+class EditColorsListview extends StatefulWidget {
+const EditColorsListview({ Key? key, required this.note }) : super(key: key);
+final NoteModel note;
 
   @override
-  State<ColorListview> createState() => _ColorListviewState();
+  State<EditColorsListview> createState() => _EditColorsListviewState();
 }
 
+class _EditColorsListviewState extends State<EditColorsListview> {
+ late int currentIndex;
+          
 
-class _ColorListviewState extends State<ColorListview> {
-  int currentIndex = 0;//اللى تم اختياراها itemبيعرفنى اية
- List<Color> colors = const [
+ @override
+ void initState() {
+    currentIndex=colors.indexOf(Color(widget.note.color));
+    super.initState();
+  }
+
+
+  List<Color> colors = const [
      Color(0xffFFCC80),
      Color(0xffff6f59),
       Color(0xff254441),
@@ -25,7 +32,8 @@ class _ColorListviewState extends State<ColorListview> {
 
  ];
   @override
-  Widget build(BuildContext context) {
+ 
+  Widget build(BuildContext context){
     return SizedBox(
         height: 35 * 2,
         child: ListView.builder(
@@ -37,11 +45,12 @@ class _ColorListviewState extends State<ColorListview> {
               child: GestureDetector(
                 onTap: () {
                   currentIndex = index;//click اللى عملت عليةindex اخزن فى المتغير 
+                 widget.note.color= colors[index].value;//ACCESS COLORوبعد كدا غيرت قيمتة
+                setState(() {
                   
-                 BlocProvider.of<AddNotesCubit>(context).color=colors[index];//جديدcolorجديد ابعت  index كل مرة بصيف 
-                 setState(() {
+                });
                     
-                  });
+                  
                 },
                 child: ColorItem(
                   color: colors[index],

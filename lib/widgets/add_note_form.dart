@@ -14,8 +14,9 @@ import 'package:notes_app/widgets/custom_textfiled.dart';
 
 class AddNoteForm extends StatefulWidget {
   const AddNoteForm({
-    super.key,
+    super.key, 
   });
+ 
 
   @override
   State<AddNoteForm> createState() => _AddNoteFormState();
@@ -25,6 +26,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
   final GlobalKey<FormState> formkey = GlobalKey();
   AutovalidateMode mode = AutovalidateMode.disabled;
   String? title, subtitle;
+ //final NoteModel note;
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -53,7 +55,9 @@ class _AddNoteFormState extends State<AddNoteForm> {
           ),
           const SizedBox(
             height: 40,),
-        const   ColorListview(),
+           ColorListview(
+              
+        ),
           const SizedBox(
             height: 40,
           ),

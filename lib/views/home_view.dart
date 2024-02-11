@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/constamt.dart';
 import 'package:notes_app/cubits/notes_cubit/cubit/notes_cubit.dart';
+import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/widgets/addN_note_bottomsheet.dart';
 import 'package:notes_app/widgets/notes_view_body.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
+ HomePage({super.key, });
+//final NoteModel note;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +25,9 @@ class HomePage extends StatelessWidget {
                 ),
                 context: context,
                 builder: (context) {
-                  return const AddNNoteBottomsheet();
+                  return  AddNNoteBottomsheet(
+                      
+                  );
                 });
           },
           child: Icon(Icons.add),
